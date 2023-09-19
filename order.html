@@ -1,0 +1,139 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>訂單管理</title>
+		<meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="shortcut icon" href="favicon.ico"/> <!--X-Icon Editor-->
+        <link rel="stylesheet" href="order.css"> 
+        <script src="https://kit.fontawesome.com/b55e96c31b.js" crossorigin="anonymous"></script><!--fontawesome-->
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script><!--sweetalert-->     
+    </head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+      <a href="#"><i class="fa-solid fa-house fa-bounce" style="color: #ffffff;"></i></i> 訂單管理 Orderpage</a>
+      <input type="text" id="myInput" onkeyup="searchName()" placeholder="查詢顧客姓名...">
+    </div>
+    
+    <!--(一)畫面左邊的輸入訂單資訊:(1)(2)-->
+    <div class="sub">
+      <h2><span>請輸入訂單資料</span></h2>
+      <!--(1)選擇數量-->
+      <table>  
+        <tr>
+          <th>商品名稱</th>
+          <th>數量</th> 
+          <th>價格</th>
+        </tr>
+
+        <tr>
+          <td>玉女番茄A</td>
+          <td>
+            <form>
+            <div id="decrease" class="value-button" onclick="decreaseValue(1)">-</div>
+            <input id="number_01" type="number" value="0"/> <!--input:可自行輸入--> <!--type:使用者只能輸入數字--> <!--value:初始顯示為0--> 
+            <div id="increase" class="value-button" onclick="increaseValue(1)">+</div>
+            </form>
+          </td>
+          <td>10</td>
+        </tr>
+
+        <tr>
+          <td>金瑩番茄B</td>
+          <td>
+            <form>
+                <div id="decrease" class="value-button" onclick="decreaseValue(2)">-</div>
+                <input id="number_02" type="number" value="0"/> <!--input:可自行輸入--> <!--type:使用者只能輸入數字--> <!--value:初始顯示為0--> 
+                <div id="increase" class="value-button" onclick="increaseValue(2)">+</div>
+            </form>
+          </td>
+          <td>15</td>
+        </tr>
+
+        <tr>
+          <td>巧克力番茄C</td>
+          <td>
+            <form>
+                <div id="decrease" class="value-button" onclick="decreaseValue(3)">-</div>
+                <input id="number_03" type="number" value="0"/> <!--input:可自行輸入--> <!--type:使用者只能輸入數字--> <!--value:初始顯示為0--> 
+                <div id="increase" class="value-button" onclick="increaseValue(3)">+</div>
+            </form>
+          </td>
+          <td>20</td>
+        </tr>
+
+        <tr>
+          <td>當季蔬菜D</td>
+          <td>
+            <form>
+                <div id="decrease" class="value-button" onclick="decreaseValue(4)">-</div>
+                <input id="number_04" type="number" value="0"/> <!--input:可自行輸入--> <!--type:使用者只能輸入數字--> <!--value:初始顯示為0--> 
+                <div id="increase" class="value-button" onclick="increaseValue(4)">+</div>
+            </form>
+          </td>
+          <td>25</td>
+        </tr>
+      </table>
+      
+      <hr>
+      
+      <!--(2)輸入顧客資訊-->
+      <div>
+        <div class="sub">
+        顧客姓名 : <input id="cusName" type="text" value=""/><br>
+        聯絡電話 : <input id="cusPhone" type="text" value=""/><br>
+        </div>
+        <div class="sub">
+          <button onclick="reset()">重設</button> <!--這個鍵不是清除訂單-->
+          <button onclick="updateOrderList()">訂購</button>
+        </div>
+      </div>
+    </div>
+
+    <!--(二)畫面右邊的訂單列表:(1)(2)-->
+    <div class="sub">
+        <!--(1)待出貨(畫面右上)-->
+        <h2><span>待出貨</span></h2>
+        <table id="myTable">
+            <tr>
+              <th>玉女</th>
+              <th>金瑩</th> 
+              <th>巧克力</th>
+              <th>當季蔬菜</th>
+              <th>顧客姓名</th>
+              <th>聯絡電話</th>
+              <th>訂購日期</th>
+              <th>總金額</th>
+              <th>狀態</th>
+            </tr>
+        </table>
+
+        <!--(2)歷史訂單(畫面右下)-->
+        <h2><span>歷史訂單紀錄</span></h2>
+        <table id="myTable_2">
+          <tr>
+            <th>玉女</th>
+            <th>金瑩</th> 
+            <th>巧克力</th>
+            <th>當季蔬菜</th>
+            <th>顧客姓名</th>
+            <th>聯絡電話</th>
+            <th>訂購日期</th>
+            <th>總金額</th>
+            <th>狀態</th>
+          </tr>
+        </table>
+
+        <!--↓↓↓↓↓需要時再取消註解↓↓↓↓↓-->
+        
+        <div>
+          <button onclick="clearOrderList()">清除所有訂單</button>
+        </div>
+        
+        
+    </div>
+  
+    <script type=text/javascript src="order.js"></script>
+</body>
+</html>
